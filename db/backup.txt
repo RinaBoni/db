@@ -1,0 +1,88 @@
+1, Иванов, Иван, Иванович, 40, 1122, 112233
+2, Сидовор, Сидор, Сидорович, 54, 1122, 111222
+3, Зубенко, Михаил, Петрович, 39, 2211, 222111
+4, Глазастин, Никита, Андреевич, 9, 9999, 123456
+5, Пюрешкин, Котлет, Подливович, 18, 1770, 920730
+6, Хрен, Знает,	Кто, 10, 2020, 200020
+
+
+
+
+
+        IDColumn.setOnEditCommit(//TODO
+                event -> {
+                    Person person = event.getRowValue();
+                    try {
+                        person.setID(event.getNewValue());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    objectsTableView.refresh();
+                }
+        );
+        AgeColumn.setOnEditCommit(
+                event -> {
+                    Person person = event.getRowValue();
+                    try {
+                        person.setAge(event.getNewValue());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    objectsTableView.refresh();
+                }
+        );
+        SeriesColumn.setOnEditCommit(
+                event -> {
+                    Person person = event.getRowValue();
+                    try {
+                        person.setSeries(event.getNewValue());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    objectsTableView.refresh();
+                }
+        );
+        NumberColumn.setOnEditCommit(
+                event -> {
+                    Person person = event.getRowValue();
+                    try {
+                        person.setNumber(event.getNewValue());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    objectsTableView.refresh();
+                }
+        );
+        FamColumn.setOnEditCommit(
+                event -> {
+                    Person person = event.getRowValue();
+                    try {
+                        person.setFam(event.getNewValue());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    objectsTableView.refresh();
+                }
+        );
+        NameColumn.setOnEditCommit(
+                event -> {
+                    Person person = event.getRowValue();
+                    try {
+                        person.setName(event.getNewValue());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    objectsTableView.refresh();
+                }
+        );
+        OtchColumn.setOnEditCommit(
+                event -> {
+                    Person person = event.getRowValue();
+                    try {
+                        person.setOtch(event.getNewValue());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    objectsTableView.refresh();
+                }
+        );
