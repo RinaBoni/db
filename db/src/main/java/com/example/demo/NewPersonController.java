@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Констроллер для добавления нового человека
+ * Контроллер для добавления нового человека
  * @avtor Борисова Екатерина ИВТ-20
  */
 public class NewPersonController {
@@ -90,6 +90,7 @@ public class NewPersonController {
             textFieldID.setStyle("-fx-control-inner-background: red");
             count++;
         }
+
         try {
             newPerson.setFam(textFieldFam.getText());
         } catch (IOException e){
@@ -143,6 +144,8 @@ public class NewPersonController {
             }
             return;
         }
+
+
         try {
             newPerson.setID(Integer.parseInt(textFieldID.getText()));
         } catch (IOException e) {
@@ -182,16 +185,18 @@ public class NewPersonController {
             }
             return;
         }
-        //----------------------Конец ИСКЛБЮЧЕНИЙ--------------------------------
-        dataBase.objects.add(newPerson);
-        Stage stage = (Stage) closeButton.getScene().getWindow();
-        objectsTableView.refresh();
-        stage.close();
+
+
+        //----------------------Конец ИСКЛЮЧЕНИЙ--------------------------------
+        dataBase.objects.add(newPerson);        //добавляем человека в бд
+        Stage stage = (Stage) closeButton.getScene().getWindow();   //
+        objectsTableView.refresh();             //обновляем таблицу
+        stage.close();                          //закрываем окно
     }
     public void onKeyPressed(KeyEvent event) {
-        if(event.getCode() == KeyCode.ESCAPE)
-            onCloseButtonClick(new ActionEvent());
-        if(event.getCode() == KeyCode.ENTER)
-            onAddPButtonClick(new ActionEvent());
+        if(event.getCode() == KeyCode.ESCAPE)           //при нажатии на esc
+            onCloseButtonClick(new ActionEvent());      //закрываем окно
+        if(event.getCode() == KeyCode.ENTER)            //при нажатии enter
+            onAddPButtonClick(new ActionEvent());       //добавляем человека в таблицу
     }
 }

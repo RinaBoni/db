@@ -6,13 +6,13 @@ import java.io.IOException;
  * @avtor Борисова Екатерина ИВТ-20
  */
 public class Person {
-    private int ID;
-    private String fam;
-    private String name;
-    private String otch;
-    private int age;
-    private int series;
-    private int number;
+    private int ID;         //поле id
+    private String fam;     //поле фамилия
+    private String name;    //поле имя
+    private String otch;    //поле отчество
+    private int age;        //поле возраст
+    private int series;     //поле серия(паспорта)
+    private int number;     //поле номер(паспорта)
 
     /**
      * Конструктор по умолчанию
@@ -29,6 +29,17 @@ public class Person {
     }
 
 
+    /**
+     * конструктор, который сразу задает все значения
+     * @param ID
+     * @param fam фамилия
+     * @param name имя
+     * @param otch отчество
+     * @param age возраст
+     * @param series серия(паспорта)
+     * @param number номер(паспорта)
+     * @throws IOException
+     */
     Person(int ID,String fam,String name,String otch, int age,int series, int number) throws IOException {
         setParams(ID,fam,name,otch,age,series,number);
     }
@@ -36,6 +47,12 @@ public class Person {
     public int getID(){
         return ID;
     }
+
+    /**
+     * Задаем id. Оно не может быть <= 0
+     * @param ID
+     * @throws IOException
+     */
     public void setID(int ID) throws IOException {
         if(ID > 0)
             this.ID = ID;
@@ -46,6 +63,12 @@ public class Person {
     public String getFam() {
         return fam;
     }
+
+    /**
+     * задаем фамилию. не может быть пустой строкой
+     * @param fam
+     * @throws IOException
+     */
     public void setFam(String fam) throws IOException {
         if(!fam.equals(""))
             this.fam = fam;
@@ -56,6 +79,12 @@ public class Person {
     public String getName() {
         return name;
     }
+
+    /**
+     * задаем имя. не может быть пустой строкой
+     * @param name
+     * @throws IOException
+     */
     public void setName(String name) throws IOException {
         if(!name.equals(""))
             this.name = name;
@@ -65,6 +94,13 @@ public class Person {
     public String getOtch() {
         return otch;
     }
+
+
+    /**
+     * задаем отчество. не может быть пустой строкой
+     * @param otch
+     * @throws IOException
+     */
     public void setOtch(String otch) throws IOException {
         if(!otch.equals(""))
             this.otch = otch;
@@ -76,6 +112,12 @@ public class Person {
     public int getAge() {
         return age;
     }
+
+    /**
+     * задаем возраст. не может быть меньше нуля
+     * @param age
+     * @throws IOException
+     */
     public void setAge(int age) throws IOException {
         if(age > 0)
             this.age = age;
@@ -86,6 +128,12 @@ public class Person {
     public int getSeries(){
         return series;
     }
+
+    /**
+     * задаем серию(паспорта). не может быть меньше нуля
+     * @param series
+     * @throws IOException
+     */
     public void setSeries(int series) throws IOException {
         if(series > 0)
             this.series = series;
@@ -96,6 +144,12 @@ public class Person {
     public int getNumber(){
         return number;
     }
+
+    /**
+     * задаем номер(паспорта). не может быть меньше нуля
+     * @param number
+     * @throws IOException
+     */
     public void setNumber(int number) throws IOException {
         if(number > 0)
             this.number = number;
@@ -103,6 +157,17 @@ public class Person {
             throw new IOException("Number cant be less then 0!");
     }
 
+    /**
+     * задает сразу все поля
+     * @param ID
+     * @param fam
+     * @param name
+     * @param otch
+     * @param age
+     * @param series
+     * @param number
+     * @throws IOException
+     */
     public void setParams(int ID,String fam,String name,String otch, int age,int series, int number) throws IOException {
         setID(ID);
         setFam(fam);
@@ -113,6 +178,10 @@ public class Person {
         setNumber(number);
     }
 
+    /**
+     * совмещает все в одну строку
+     * @return строка
+     */
     public String toString(){
         return getID()+", "+getFam()+", "+getName()+", "+ getOtch() + ", " + getAge() + ", " + getSeries() + ", " + getNumber();
     }

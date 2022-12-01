@@ -57,8 +57,8 @@ public class DataBaseController {
      */
     public void initialize(){
         // ==== Инициализация таблицы
-        // связывает колонку и метод из Student, с помощью которого колонка будет получать значения для каждой ячейки данных
-        // аргумента PropertyValueFactory должен быь таким, чтобы получить име геттера и сеттера добавив get и set соответственно
+        // связывает колонку и метод из Person, с помощью которого колонка будет получать значения для каждой ячейки данных
+        // аргумента PropertyValueFactory должен быть таким, чтобы получить имя геттера и сеттера добавив get и set соответственно
         objectsTableView.setItems(data.objects);// связывает табличку и класс базы данных
         IDColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
         FamColumn.setCellValueFactory(new PropertyValueFactory<>("Fam"));
@@ -92,9 +92,9 @@ public class DataBaseController {
 
         stage.setTitle("New person");
         stage.setScene(scene);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.getUserData();
-        stage.setResizable(false);
+        stage.initModality(Modality.APPLICATION_MODAL);     //он будет блокировать все другие окна (Stage), открытые этим приложением. Вы не можете получить доступ к ним, пока это окно рабочей области не будет закрыто.
+        stage.getUserData();                                //Получает данные указанного пользователя в виде объекта
+        stage.setResizable(false);                          //пользователь не право изменять размеры фрейма.
         stage.show();
 
         NewPersonController newPersonController = fxmlLoader.getController();
@@ -145,7 +145,7 @@ public class DataBaseController {
      * @throws IOException
      */
     @FXML
-    void clickInfoButton() throws IOException {//TODO
+    void clickInfoButton() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(DataBaseApplication.class.getResource("Z.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -189,6 +189,8 @@ public class DataBaseController {
             }
         }
     }
+
+
     @FXML
     void clickSortAgeItem(ActionEvent event) {
        // SortedList<Person> sortedItems = new SortedList<>(data.objects);
